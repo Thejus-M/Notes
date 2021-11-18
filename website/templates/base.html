@@ -14,7 +14,7 @@
     <!-- Boody starts -->
     <!-- navbar -->
     <nav class="navbar navbar-expand-custom navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="#">
+        <a class="navbar-brand navbar-logo" href="/">
             <i class="far fa-calendar-alt"></i>Home</a>
         <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars text-white"></i>
@@ -39,6 +39,31 @@
     </nav>
     <!-- navbar  ends-->
     
+    <!-- flash messages -->
+
+    {%with messages = get_flashed_messages(with_categories=true)%}
+    {%if messages %}
+        {% for category, message in messages%}
+        {%if category == 'error'%}
+        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {%else%}
+        <div class="alert alert-success alert-dismissable fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {%endif%}
+        {%endfor%}
+    {%endif%}
+    {%endwith%}
+
+    <!-- flash messages ends -->
     <div class="container">
         {%block content%}
         {%endblock%}
@@ -60,7 +85,6 @@
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
-            <p class="copyright">Company Name © 2018</p>
         </footer>
     </div>
 
