@@ -1,9 +1,58 @@
 {% extends "base.html" %}
 {% block title%} Login In {% endblock %}
 {%block activeonofLogin%}active{%endblock%}
+
 {%block content%}
-<br><br>
-<h1>This is the Login In</h1>
-
-
+<form action="" method="post">
+<div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Registration Form</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form>
+            <div class="input_field"> <span> <i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="password" name="password1" id="password1" placeholder="Password" required />
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="password" name="password2" id="password2" placeholder="Re-type Password" required />
+            </div>
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" name="fname" placeholder="First Name" />
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" name="lname" placeholder="Last Name" required />
+                </div>
+              </div>
+            </div>
+                  <div class="input_field radio_option">
+                <input type="radio" name="radiogroup1" id="rd1">
+                <label for="rd1">Male</label>
+                <input type="radio" name="radiogroup1" id="rd2">
+                <label for="rd2">Female</label>
+                </div>
+                <div class="input_field select_option">
+                  <select>
+                    <option>Select a country</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                  </select>
+                  <div class="select_arrow"></div>
+                </div>
+            <input class="buton" type="submit" value="Register" />
+            <button type="button" class="sign btn btn-success" Onclick="location.href = '/sign-up';">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 {%endblock%}
