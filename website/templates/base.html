@@ -21,14 +21,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Login</a>
+                <li class="nav-item {%block activeonofHome%}activate{%endblock%}">
+                    <a class="nav-link" href="/"><i class="fas fa-tachometer-alt"></i>Home</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Sign Up</a>
+                <li class="nav-item {%block activeonofLogin%}{%endblock%}" >
+                    <a class="nav-link" href="/login"><i class="fas fa-tachometer-alt"></i>Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Logout</a>
+                <li class="nav-item {%block activeonofsignup%}{%endblock%}">
+                    <a class="nav-link" href="/sign-up"><i class="far fa-address-book"></i>Sign Up</a>
+                </li>
+                <li class="nav-item {%block activeonofLogout%}{%endblock%}">
+                    <a class="nav-link" href="/logout"><i class="far fa-clone"></i>Logout</a>
                 </li>
             </ul>
         </div>
