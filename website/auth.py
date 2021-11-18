@@ -20,7 +20,7 @@ def signup():
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
-        if len(password1) > 7:
+        if len(password1) < 7:
             flash('Must be greater then 7 character :(', category='error')
         elif password1 != password2:
             flash('Password don\'t match :(', category='error')        
