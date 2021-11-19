@@ -8,14 +8,13 @@
     <li class="list-group-item">{{note.data}}</li>
     
     {%endfor%}
-
 </ul>
 <form action="" method="post">
-    <textarea name="note" id="note" cols="30" rows="10">
+    <textarea name="note" id="note" class="form-control"></textarea>
         <div align='center'>
+            <br><br>
             <button type="submit" class="btn btn-primary">Add Note</button>
         </div>
-    </textarea>
 </form>
 
 {%endblock%}
