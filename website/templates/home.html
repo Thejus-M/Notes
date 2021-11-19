@@ -2,7 +2,20 @@
 {% block title%} Home {% endblock %}
 {%block activeonofHome%}active{%endblock%}
 {%block content%}
-<br><br>
-<h1>This is the home page</h1>
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">{{note.data}}</li>
+    
+    {%endfor%}
+
+</ul>
+<form action="" method="post">
+    <textarea name="note" id="note" cols="30" rows="10">
+        <div align='center'>
+            <button type="submit" class="btn btn-primary">Add Note</button>
+        </div>
+    </textarea>
+</form>
 
 {%endblock%}
