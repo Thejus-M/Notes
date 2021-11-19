@@ -648,3 +648,9 @@ body {
 
 /* signup form end */
 
+
+.new{
+    display:inline-block;
+    justify-content:center;
+    align-content:center;
+}
