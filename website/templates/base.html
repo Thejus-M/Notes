@@ -1,104 +1,135 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>{%block title%}Title{%endblock%}</title>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
-<link rel="stylesheet" href="{{ url_for('static',filename='css.css') }}">
-<link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
-</head>
-<body>
-    
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{%block title%}Title{%endblock%}</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+    />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css.css') }}" />
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400" />
+  </head>
+  <body style="background-color: black">
     <!-- Boody starts -->
     <!-- navbar -->
     <nav class="navbar navbar-expand-custom navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="/">
-            <i class="far fa-calendar-alt"></i>Home</a>
-        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand navbar-logo" href="/">
+        <i class="far fa-calendar-alt"></i>Home</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <i class="fas fa-bars text-white"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                {%if user.is_authenticated%}
-                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                <li class="nav-item {%block activeonofHome%}activate{%endblock%}">
-                    <a class="nav-link" href="/"><i class="fas fa-tachometer-alt"></i>Home</a>
-                </li>
-                <li class="nav-item {%block activeonofLogout%}{%endblock%}">
-                    <a class="nav-link" href="/logout"><i class="far fa-clone"></i>Logout</a>
-                </li>
-                {%else%}
-                <li class="nav-item {%block activeonofLogin%}activate{%endblock%}" >
-                    <a class="nav-link" href="/login"><i class="fas fa-tachometer-alt"></i>Login</a>
-                </li>
-                <li class="nav-item {%block activeonofsignup%}{%endblock%}">
-                    <a class="nav-link" href="/sign-up"><i class="far fa-address-book"></i>Sign Up</a>
-                </li>
-                {%endif%}
-            </ul>
-        </div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          {%if user.is_authenticated%}
+          <div class="hori-selector">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+          <li class="nav-item {%block activeonofHome%}activate{%endblock%}">
+            <a class="nav-link" href="/"
+              ><i class="fas fa-tachometer-alt"></i>Home</a
+            >
+          </li>
+          <li class="nav-item {%block activeonofLogout%}{%endblock%}">
+            <a class="nav-link" href="/logout"
+              ><i class="far fa-clone"></i>Logout</a
+            >
+          </li>
+          {%else%}
+          <li class="nav-item {%block activeonofLogin%}activate{%endblock%}">
+            <a class="nav-link" href="/login"
+              ><i class="fas fa-tachometer-alt"></i>Login</a
+            >
+          </li>
+          <li class="nav-item {%block activeonofsignup%}{%endblock%}">
+            <a class="nav-link" href="/sign-up"
+              ><i class="far fa-address-book"></i>Sign Up</a
+            >
+          </li>
+          {%endif%}
+        </ul>
+      </div>
     </nav>
     <!-- navbar  ends-->
-    
+
     <!-- flash messages -->
 
-    {%with messages = get_flashed_messages(with_categories=true)%}
-    {%if messages %}
-        {% for category, message in messages%}
-        {%if category == 'error'%}
-        <div class="alert alert-danger alert-dismissable fade show" role="alert">
-            {{message}}
-            <button type="button" class="close" data-dismiss="alert">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {%else%}
-        <div class="alert alert-success alert-dismissable fade show" role="alert">
-            {{message}}
-            <button type="button" class="close" data-dismiss="alert">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {%endif%}
-        {%endfor%}
-    {%endif%}
-    {%endwith%}
+    {%with messages = get_flashed_messages(with_categories=true)%} {%if messages
+    %} {% for category, message in messages%} {%if category == 'error'%}
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {%else%}
+    <div class="alert alert-success alert-dismissable fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {%endif%} {%endfor%} {%endif%} {%endwith%}
 
     <!-- flash messages ends -->
-    <div class="container">
-        {%block content%}
-        {%endblock%}
-    </div>
-  
-
-
+    <div class="container">{%block content%} {%endblock%}</div>
 
     <!-- Footer  starts-->
 
-    
-    <div class="footer-basic">
-        <footer>
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
-                <li class="list-inline-item"><a href="#">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-            </ul>
-        </footer>
+    <div
+      class="footer-basic"
+      style="background-color: rgb(55, 0, 255); color: #fff"
+    >
+      <footer>
+        <div class="social">
+          <a href="https://github.com/Thejus-M"
+            ><i style="font-size: 40px" class="fab">&#xf09b;</i></a
+          ><a href="https://gitlab.com/iamfoss"
+            ><i style="font-size: 40px" class="fab">&#xf296;</i></a
+          >
+          <a href="https://t.me/No_lemon_no_meloN"
+            ><i style="font-size: 40px" class="fab">&#xf3fe;</i></a
+          >
+        </div>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/">Home</a></li>
+          <li class="list-inline-item"><a href="/login">Login</a></li>
+          <li class="list-inline-item"><a href="/sign-up">SignUp</a></li>
+        </ul>
+      </footer>
     </div>
 
     <!-- Footer ends -->
     <!-- Body Ends here-->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
-<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
-<script src="{{ url_for('static',filename='js.js') }}">
-</script>
-</body>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static',filename='js.js') }}"></script>
+  </body>
 </html>
